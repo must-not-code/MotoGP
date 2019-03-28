@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: MotoGP_production
-  username: MotoGP
+  username: <%= ENV['MOTOGP_DATABASE_USER'] %>
   password: <%= ENV['MOTOGP_DATABASE_PASSWORD'] %>
