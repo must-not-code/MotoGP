@@ -1,4 +1,5 @@
 $yellow: #FFDD00
+$dark: #3C3C3C
 
 @font-face
   font-family: 'Roboto-Regular'
@@ -24,9 +25,9 @@ button
   font-size: 16px
   border-radius: 30px
   text-transform: uppercase
-  margin: 70px 0px 70px 0px
+  margin: 70px 0px
   cursor: pointer
-  background: #3C3C3C
+  background: $dark
   color: #FFF
 
 .header
@@ -52,7 +53,7 @@ button
   margin: 0 auto
 
 .logos
-  padding: 60px 0px 60px 0px
+  padding: 60px 0px
   display: flex
   align-items: center
   justify-content: space-between
@@ -69,7 +70,7 @@ button
     margin-top: 80px
 
   img
-    margin: 60px 0px 60px 0px
+    margin: 60px 0px
 
   .asterisk
     font-size: 10px
@@ -80,3 +81,42 @@ button
 h2
   font-weight: 400
   font-size: 33px
+
+.footer
+  background: $dark
+  color: #FFF
+  padding: 15px 0px
+
+  .container
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  a
+    color: #FFF
+    text-decoration: none
+
+  i
+    color: $yellow
+    font-size: 25px
+    margin: 0px 10px
+
+.copyright
+  p, a
+    font-size: 12px
+
+  p:first-child
+    margin-bottom: -10px
+
+.brands
+  text-align: center
+
+  img
+    transform: scale(0.6)
+
+  div:last-child
+    height: 30px
+
+.channel
+  img
+    transform: scale(0.8)

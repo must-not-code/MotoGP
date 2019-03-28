@@ -55,3 +55,30 @@
       | Готов получить незабываемые эмоции и окунуться в мир жизни на высоких скоростях? Тогда жми кнопку "Участвовать" прямо сейчас!
     button
       | Участвовать
+.footer
+  .container
+    .copyright
+      p
+        | © 2019 Телеканал «Моторспорт.тв»
+      p
+        | Все права защищены
+      = link_to 'Правила конкурса', '#'
+    .brands
+      div
+        = link_to 'http://ru.motorsport.tv', target: '_blank' do
+          = image_tag 'moto.png'
+      div
+        = link_to 'http://www.tricolor.tv', target: '_blank' do
+          = image_tag 'three.png'
+    = image_tag '12.png'
+    .social
+      = link_to 'https://vk.com/msportru', target: '_blank' do
+        = fa_icon 'vk'
+      = link_to 'https://www.instagram.com/msportru', target: '_blank' do
+        = fa_icon 'instagram'
+      = link_to 'https://www.facebook.com/msportru', target: '_blank' do
+        = fa_icon 'facebook-square'
+      = link_to 'https://ok.ru/msportru', target: '_blank' do
+        = fa_icon 'odnoklassniki'
+    .channel
+      = image_tag '611.png'
