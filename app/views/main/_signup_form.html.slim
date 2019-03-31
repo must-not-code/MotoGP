@@ -1,0 +1,29 @@
+#signup_form
+  h3
+    #switch_to_login
+      | Вход
+    '
+    | /
+    '
+    .active
+      | Регистрация
+  .error#signup_error
+  form#signup action='/signup' method='post'
+    = hidden_field_tag :authenticity_token, form_authenticity_token
+    label Имя
+    input name='name' type='text' required='true'
+    label Фамилия
+    input name='surname' type='text' required='true'
+    label Отчество
+    input name='patronymic' type='text' required='true'
+    label Контактный телефон
+    input name='phone' type='tel' required='true'
+    label Контактный email
+    input name='email' type='email' required='true'
+    label № абонента триколортв
+    input name='tricolor' type='text' required='true'
+    label Введите пароль
+    input name='password' type='password' required='true'
+    label Повторите пароль
+    input name='password_confirmation' type='password' required='true'
+    button#signup_form_button type='submit' Зарегистрироваться

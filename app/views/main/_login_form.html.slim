@@ -1,0 +1,17 @@
+#login_form
+  h3
+    .active
+      | Вход
+    '
+    | /
+    '
+    #switch_to_signup
+      | Регистрация
+  .error#login_error
+  form#login action='/login' method='post'
+    = hidden_field_tag :authenticity_token, form_authenticity_token
+    label № абонента триколортв
+    input name='tricolor' type='text' required='true'
+    label Введите пароль
+    input name='password' type='password' required='true'
+    button#login_form_button type='submit' Войти
