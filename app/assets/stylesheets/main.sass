@@ -10,6 +10,7 @@ body
   margin: 0px
   font-family: 'Roboto-Regular', sans-serif
   background: $bg
+  color: $dark
 
 h1
   font-weight: 400
@@ -42,7 +43,7 @@ button
 
   button
     background: $yellow
-    color: #000
+    color: $dark
 
   a, span
     color: $yellow
@@ -66,7 +67,7 @@ button
   float: right
 
 .prizes
-  color: #000
+  color: $dark
   text-align: center
 
   h1
@@ -126,7 +127,6 @@ h2
 
 .form
   background: radial-gradient(#FFDD00, #FFC500)
-  padding-top: 25px
 
   h3
     text-transform: uppercase
@@ -134,11 +134,11 @@ h2
     margin-bottom: 60px
 
     .active
-      border-bottom: 2px solid #000
+      border-bottom: 2px solid $dark
       cursor: default
 
     div
-      color: #000
+      color: $dark
       display: inline
       cursor: pointer
 
@@ -147,6 +147,7 @@ h2
     text-align: center
     display: block
     margin: 0px auto
+    padding-top: 25px
 
   label
     display: block
@@ -168,3 +169,44 @@ h2
 
   #login_form
     display: none
+
+  .quiz
+    width: 700px
+
+    .column
+      display: inline-block
+      width: 260px
+      padding: 0px
+
+    .fixed
+      label:last-child
+        visibility: hidden
+
+    input
+      width: 15px
+      height: 18px
+      margin-right: 10px
+
+    label
+      color: $dark
+      text-transform: none
+      margin: 20px 0px 5px 0px
+
+    h3
+      text-transform: none
+
+    .stage
+      text-align: left
+      width: 700px
+
+      h3
+        text-transform: uppercase
+        margin: 50px 0px 0px 0px
+
+      p
+        margin: 0px 0px 50px 0px
+
+.thx
+  text-transform: uppercase
+  text-align: center
+  padding: 70px !important

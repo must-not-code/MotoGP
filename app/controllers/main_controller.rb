@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def index
+    @user = current_user
   end
 
   def signup
@@ -8,7 +9,7 @@ class MainController < ApplicationController
 
     if @user.save
       session[:token] = @user.token
-      render json: { message: 'Зарегался' }, status: :created
+      render partial: 'quiz.html.slim'
     else
       render json: { error: @user.errors.first[1] }, status: :unprocessable_entity
     end
@@ -19,10 +20,22 @@ class MainController < ApplicationController
     if @user.present?
       @user.update(token: SecureRandom.hex(64))
       session[:token] = @user.token
-      render json: { message: 'Вошел' }, status: :ok
-      #render partial: 'json_partial', formats: [:json]
+      render partial: 'quiz.html.slim'
     else
       render json: { error: 'Неправильный логин или пароль' }, status: :unauthorized
+    end
+  end
+
+  def quiz
+    if @user = current_user
+      if @user.stage_one && @user.stage_two
+        render json: { error: 'Выбор уже нельзя изменить' }, status: :unprocessable_entity
+      else
+        @user.update(stage_one: params[:stage_one], stage_two: params[:stage_two])
+        render partial: 'thx.html.slim'
+      end
+    else
+      render json: { error: 'Ошибка аутентификации' }, status: :unauthorized
     end
   end
 

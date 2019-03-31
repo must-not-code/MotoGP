@@ -9,7 +9,7 @@ $(document).ready(function() {
       data: $('#signup').serialize()
     })
     .done(function(data) {
-      $('#form').text(data.message);
+      $('#form').html(data);
     })
     .fail(function(data) {
       $('#signup_form_button').prop('disabled', false);
@@ -27,7 +27,7 @@ $(document).ready(function() {
       data: $('#login').serialize()
     })
     .done(function(data) {
-      $('#form').text(data.message);
+      $('#form').html(data);
     })
     .fail(function(data) {
       $('#login_form_button').prop('disabled', false);
@@ -43,5 +43,23 @@ $(document).ready(function() {
   $('#switch_to_signup').click(function() {
     $('#signup_form').show()
     $('#login_form').hide()
+  });
+
+  $(document).on('submit', '#quiz', function(e){
+    e.preventDefault();
+    $('#quiz_button').prop('disabled', true);
+
+    $.ajax({
+      type: 'POST',
+      url: $('#quiz').attr('action'),
+      data: $('#quiz').serialize()
+    })
+    .done(function(data) {
+      $('#form').html(data);
+    })
+    .fail(function(data) {
+      $('#quiz_button').prop('disabled', false);
+      $('#login_error').text(data.responseJSON.error);
+    });
   });
 });

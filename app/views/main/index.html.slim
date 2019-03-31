@@ -56,11 +56,11 @@
     button onclick="location.href='#form';"
       | Участвовать
 #form.form
-  - if current_user
-    | авторизован
+  - if @user
+    = render 'quiz'
   - else
-     = render 'login_form'
-     = render 'signup_form'
+    = render 'login_form'
+    = render 'signup_form'
 .footer
   .container
     .copyright

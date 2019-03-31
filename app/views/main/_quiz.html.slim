@@ -1,0 +1,35 @@
+- if @user&.stage_one && @user&.stage_two
+  = render 'thx'
+- else
+  .quiz#quiz_form
+    form#quiz action='/quiz' method='post'
+      = hidden_field_tag :authenticity_token, form_authenticity_token
+      .stage
+        h3 Первый этап
+        p Прием ответов заканчивается 13 апреля в 12:00 МСК
+      h3 Отгадай, кто станет победителем третьего этапа MotoGP 2019 в США?
+      .column
+        - ['Марк Маркес', 'Андреа Довициозо', 'Валентино Росси', 'Маверик Виньялес', 'Андреа Янноне', 'Алеш Эспаргаро', 'Пол Эспаргаро', 'Джек Миллер', 'Франческо Баньяйя', 'Данило Петруччи', 'Карел Абрахам', 'Тито Рабат'].each do |racer|
+          label
+            input name='stage_one' value="#{racer}" type='radio' required='true'
+             = racer
+      .column.fixed
+        - ['Такааки Накагами', 'Кэл Кратчлоу', 'Хорхе Лоренцо', 'Йоханн Зарко', 'Хафиж Сиарин', 'Мигель Оливейра', 'Джоан Мир', 'Алекс Ринс', 'Фабио Куартараро', 'Франко Морбиделли', 'Кто-то другой', 'Чак Норрис'].each do |racer|
+          label
+            input name='stage_one' value="#{racer}" type='radio' required='true'
+             = racer
+      .stage
+        h3 Второй этап
+        p Прием ответов заканчивается 13 апреля в 12:00 МСК
+      h3 Сколько пилотов из вышедших на старт 3-го этапа MotoGP 2019 в США не финишируют?
+      .column
+        - %w[0 1 2 3 4 5].each do |count|
+          label
+            input name='stage_two' value="#{count}" type='radio' required='true'
+             = count
+      .column
+        - %w[6 7 8 9 10 Больше].each do |count|
+          label
+            input name='stage_two' value="#{count}" type='radio' required='true'
+             = count
+      button#quiz_button type='submit' Отправить
