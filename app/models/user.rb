@@ -22,4 +22,18 @@ class User < ApplicationRecord
   def fix_phone
     self.phone = phone.gsub(/\D/, '')
   end
+
+  def self.to_csv
+    attributes = %w[name surname patronymic email phone tricolor stage_one stage_two stage_three]
+
+    File.write('./data.csv',
+      CSV.generate(headers: true) do |csv|
+        csv << attributes
+
+        all.each do |user|
+          csv << attributes.map{ |attr| user.send(attr) }
+        end
+      end
+    )
+  end
 end
