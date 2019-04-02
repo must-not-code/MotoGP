@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post 'signup' => 'main#signup'
   post 'login' => 'main#login'
   post 'quiz' => 'main#quiz'
+  get 'rules' => 'main#rules'
 end
