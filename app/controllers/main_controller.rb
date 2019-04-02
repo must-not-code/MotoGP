@@ -39,14 +39,6 @@ class MainController < ApplicationController
     end
   end
 
-  def rules
-    send_file(
-      "#{Rails.root}/public/rules.pdf",
-      filename: 'Триколор правила.pdf',
-      type: 'application/pdf'
-    )
-  end
-
   private
 
   def user_params
