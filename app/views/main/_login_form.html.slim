@@ -5,7 +5,7 @@
     '
     | /
     '
-    #switch_to_signup
+    .switch_to_signup
       | Регистрация
   .error#login_error
   form#login action='/login' method='post'
@@ -14,4 +14,7 @@
     input name='tricolor' type='text' required='true'
     label Введите пароль
     input name='password' type='password' required='true'
+    .switch_to_reset_password
+      | Забыли пароль?
+    .clear
     button#login_form_button type='submit' Войти

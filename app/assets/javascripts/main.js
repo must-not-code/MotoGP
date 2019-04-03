@@ -35,14 +35,57 @@ $(document).ready(function() {
     });
   });
 
-  $('#switch_to_login').click(function() {
-    $('#signup_form').hide()
-    $('#login_form').show()
+  $('#reset').submit(function(e) {
+    e.preventDefault();
+    $('#reset_form_button').prop('disabled', true);
+
+    $.ajax({
+      type: 'POST',
+      url: $('#reset').attr('action'),
+      data: $('#reset').serialize()
+    })
+    .done(function(data) {
+      $('#form').html(data);
+    })
   });
 
-  $('#switch_to_signup').click(function() {
-    $('#signup_form').show()
-    $('#login_form').hide()
+  $('#password').submit(function(e) {
+    e.preventDefault();
+    $('#password_form_button').prop('disabled', true);
+
+    $.ajax({
+      type: 'POST',
+      url: $('#password').attr('action'),
+      data: $('#password').serialize()
+    })
+    .done(function(data) {
+      $('#form').html(data);
+      setTimeout(function() {
+        window.location.href = 'https://motortricolor.ru/#form';
+      }, 3000);
+    })
+    .fail(function(data) {
+      $('#password_form_button').prop('disabled', false);
+      $('#password_error').text(data.responseJSON.error);
+    });
+  });
+
+  $('.switch_to_login').click(function() {
+    $('#signup_form').hide();
+    $('#reset_form').hide();
+    $('#login_form').show();
+  });
+
+  $('.switch_to_signup').click(function() {
+    $('#login_form').hide();
+    $('#reset_form').hide();
+    $('#signup_form').show();
+  });
+
+  $('.switch_to_reset_password').click(function() {
+    $('#login_form').hide();
+    $('#signup_form').hide();
+    $('#reset_form').show();
   });
 
   $(document).on('submit', '#quiz', function(e){

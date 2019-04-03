@@ -61,8 +61,12 @@
   - if @user
     = render 'quiz'
   - else
-    = render 'login_form'
-    = render 'signup_form'
+    - if @reset_token
+      = render 'password_form'
+    - else
+      = render 'login_form'
+      = render 'signup_form'
+      = render 'reset_form'
 .footer
   .container
     .copyright
