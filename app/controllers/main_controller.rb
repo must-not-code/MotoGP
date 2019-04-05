@@ -2,8 +2,6 @@ class MainController < ApplicationController
   def index
     @user = current_user
     @reset_token = params[:reset_token]
-puts '############'
-puts params
   end
 
   def signup
