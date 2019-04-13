@@ -11,19 +11,19 @@
         p Прием ответов заканчивается 4 мая в 12:00 МСК
       h3 Отгадай разницу во времени на финише между первым и пятым местом в категории MotoGP на четвертом этапе чемпионата в Испании 5 апреля
       .field
-        input name='minutes' required='true' value='00' type='text' pattern='\d*' maxlength='2'
+        input name='minutes' required='true' value='00' type='text' pattern='\d*' maxlength='2' minlength='2'
         label Минуты
       .field
         span
           | :
       .field
-        input name='seconds' required='true' value='00' type='text' pattern='\d*' maxlength='2'
+        input name='seconds' required='true' value='00' type='text' pattern='\d*' maxlength='2' minlength='2'
         label Секунды
       .field
         span
           | :
       .field.last
-        input name='milliseconds' required='true' value='000' type='text' pattern='\d*' maxlength='3'
+        input name='milliseconds' required='true' value='000' type='text' pattern='\d*' maxlength='3' minlength='3'
         label Миллисекунды
       .div
       button#quiz_button type='submit' Отправить
