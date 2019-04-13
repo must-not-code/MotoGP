@@ -29,10 +29,10 @@ class MainController < ApplicationController
 
   def quiz
     if @user = current_user
-      if @user.stage_one && @user.stage_two
+      if @user.stage_three
         render json: { error: 'Выбор уже нельзя изменить' }, status: :unprocessable_entity
       else
-        @user.update(stage_one: params[:stage_one], stage_two: params[:stage_two])
+        @user.update(stage_three: [params[:minutes], params[:seconds], params[:milliseconds]].join(':'))
         render partial: 'thx.html.slim'
       end
     else
